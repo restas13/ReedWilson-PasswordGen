@@ -16,10 +16,12 @@ function generatePassword() {
     specifyPassword(length);
   } else {
     alert("Uh oh, it looks like you selected a number outside of the allowed range, please try again.");
+    return "Your Secure Password";
   }
 
   for (var i = 0; i < parseInt(length); i++) {
-    passwordCharacters.push(passwordContents[i]);
+    var num = Math.floor(Math.random() * passwordContents.length);
+    passwordCharacters.push(passwordContents[num]);
   }
 
   finalPass = passwordCharacters.toString();
@@ -27,6 +29,7 @@ function generatePassword() {
   console.log(finalPass);
   console.log("hello");
 
+  return finalPass;
 }
 
 function specifyPassword(len) {
@@ -70,6 +73,9 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+
+  passwordContents = [];
+  console.log(passwordContents);
 
 }
 
