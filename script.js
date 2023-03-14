@@ -4,7 +4,7 @@ var passwordContents = [];
 var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
 var lower = "abcdefghijklmnopqrstuvwxyz".split('');
 var nums = "1234567890".split('');
-var special = "!@#$%^&*()_-+={[}]:;<,>.?/|".split('');
+var special = "!@#$%^&*()_-+={[}]:;<>.?/|".split('');
 
 function generatePassword() {
   var length = parseInt(prompt("How long would you like your password to be? (must be greater than 7 and less than 128)"));
@@ -18,12 +18,13 @@ function generatePassword() {
     alert("Uh oh, it looks like you selected a number outside of the allowed range, please try again.");
   }
 
-  for (var i; i < length; i++) {
-    console.log("working");
+  for (var i = 0; i < parseInt(length); i++) {
+    passwordCharacters.push(passwordContents[i]);
   }
 
   finalPass = passwordCharacters.toString();
-  console.log(passwordCharacters);
+  finalPass = finalPass.replaceAll(/,/g, '');
+  console.log(finalPass);
   console.log("hello");
 
 }
@@ -56,6 +57,8 @@ function specifyPassword(len) {
     }
     console.log(passwordContents);
   }
+
+  
 }
 
 // Get references to the #generate element
